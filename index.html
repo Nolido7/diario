@@ -2,94 +2,23 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Pequeno Diário</title>
+    <title>Diário Teste</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
-
+    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
 </head>
 <body>
 
-    <div id="login-container">
-        <div class="login-box">
-            <h2>Meu Pequeno Diário</h2>
-            <p>Para quem são as memórias de hoje?</p>
-            <input type="text" id="username" placeholder="Digite seu nome ou apelido">
-            <button id="login-btn">Entrar no Diário</button>
-        </div>
-    </div>
-
-    <div id="diario-container" style="display:none;">
-        <div class="book-viewport">
-            <div id="livro">
-                <div class="hard"> <h1>Meu Pequeno Diário</h1> </div>
-                <div class="hard"></div>
-
-                <div> <div class="page-content"> <h2>Página 1</h2> <textarea id="text-1" placeholder="Comece a escrever..."></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 2</h2> <textarea id="text-2"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 3</h2> <textarea id="text-3"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 4</h2> <textarea id="text-4"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 5</h2> <textarea id="text-5"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 6</h2> <textarea id="text-6"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 7</h2> <textarea id="text-7"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 8</h2> <textarea id="text-8"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 9</h2> <textarea id="text-9"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 10</h2> <textarea id="text-10"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 11</h2> <textarea id="text-11"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 12</h2> <textarea id="text-12"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 13</h2> <textarea id="text-13"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 14</h2> <textarea id="text-14"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 15</h2> <textarea id="text-15"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 16</h2> <textarea id="text-16"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 17</h2> <textarea id="text-17"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 18</h2> <textarea id="text-18"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 19</h2> <textarea id="text-19"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 20</h2> <textarea id="text-20"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 21</h2> <textarea id="text-21"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 22</h2> <textarea id="text-22"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 23</h2> <textarea id="text-23"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 24</h2> <textarea id="text-24"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 25</h2> <textarea id="text-25"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 26</h2> <textarea id="text-26"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 27</h2> <textarea id="text-27"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 28</h2> <textarea id="text-28"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 29</h2> <textarea id="text-29"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 30</h2> <textarea id="text-30"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 31</h2> <textarea id="text-31"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 32</h2> <textarea id="text-32"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 33</h2> <textarea id="text-33"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 34</h2> <textarea id="text-34"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 35</h2> <textarea id="text-35"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 36</h2> <textarea id="text-36"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 37</h2> <textarea id="text-37"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 38</h2> <textarea id="text-38"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 39</h2> <textarea id="text-39"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 40</h2> <textarea id="text-40"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 41</h2> <textarea id="text-41"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 42</h2> <textarea id="text-42"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 43</h2> <textarea id="text-43"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 44</h2> <textarea id="text-44"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 45</h2> <textarea id="text-45"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 46</h2> <textarea id="text-46"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 47</h2> <textarea id="text-47"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 48</h2> <textarea id="text-48"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 49</h2> <textarea id="text-49"></textarea> </div> </div>
-                <div> <div class="page-content"> <h2>Página 50</h2> <textarea id="text-50"></textarea> </div> </div>
-
-                <div class="hard"></div>
-                <div class="hard"></div>
-            </div>
-        </div>
-        
-        <div class="navigation">
-            <button id="logout-btn">Trocar Usuário</button>
-        </div>
-
-        <div id="save-status" class="hidden">Salvo!</div>
+    <div id="meu-livro">
+        <div class="hard"> Diário Teste </div>
+        <div class="hard"></div>
+        <div> Página 1 </div>
+        <div> Página 2 </div>
+        <div> Página 3 </div>
+        <div> Página 4 </div>
+        <div class="hard"></div>
+        <div class="hard"></div>
     </div>
 
     <script src="script.js"></script>
