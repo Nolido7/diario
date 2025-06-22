@@ -1,85 +1,78 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const book = document.querySelector('.book');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    const pages = document.querySelectorAll('.page');
-    const textareas = document.querySelectorAll('textarea');
+$(document).ready(function() {
+    let currentUser = null;
+    const totalPages = 50; // Total de páginas do nosso diário
 
-    const totalPages = pages.length;
-    let currentPage = 0;
+    const loginContainer = $('#login-container');
+    const diarioContainer = $('#diario-container');
+    const loginBtn = $('#login-btn');
+    const logoutBtn = $('#logout-btn');
+    const usernameInput = $('#username');
+    const book = $('#livro');
 
-    // Abrir o livro ao clicar na capa
-    document.querySelector('.cover').addEventListener('click', () => {
-        book.classList.add('open');
-        // A capa é a página 0, a primeira folha é a 1
-        currentPage = 1; 
-        updateButtons();
-        updateZIndex();
-    });
-
-    // Função para virar para a próxima página
-    nextBtn.addEventListener('click', () => {
-        if (currentPage <= totalPages) {
-            pages[currentPage - 1].classList.add('flipped');
-            currentPage++;
-            updateButtons();
-            updateZIndex();
+    // Evento do botão de Login
+    loginBtn.on('click', function() {
+        const username = usernameInput.val().trim();
+        if (username) {
+            currentUser = username;
+            loginContainer.hide();
+            diarioContainer.show();
+            initializeDiary();
+        } else {
+            alert('Por favor, digite seu nome.');
         }
     });
 
-    // Função para virar para a página anterior
-    prevBtn.addEventListener('click', () => {
-        if (currentPage > 1) {
-            currentPage--;
-            pages[currentPage - 1].classList.remove('flipped');
-            updateButtons();
-            updateZIndex();
-        } else if (currentPage === 1) {
-            // Fechar o livro se estiver na primeira página
-            book.classList.remove('open');
-            currentPage = 0;
-            updateButtons();
+    // Evento do botão de Trocar Usuário (Logout)
+    logoutBtn.on('click', function() {
+        if (confirm('Tem certeza que deseja sair? Suas anotações estão salvas.')) {
+            // Destrói a instância do Turn.js para poder recriá-la
+            book.turn('destroy');
+            diarioContainer.hide();
+            loginContainer.show();
+            usernameInput.val('');
+            currentUser = null;
         }
     });
-
-    function updateButtons() {
-        prevBtn.disabled = currentPage <= 0;
-        nextBtn.disabled = currentPage > totalPages;
-    }
-
-    function updateZIndex() {
-        setTimeout(() => {
-            pages.forEach((page, index) => {
-                if (index < currentPage - 1) {
-                    page.style.zIndex = index + 1;
-                } else {
-                    page.style.zIndex = totalPages - index;
-                }
-            });
-        }, 500); // Metade do tempo da animação CSS
-    }
     
-    // --- Lógica para Salvar e Carregar o Texto ---
-
-    // Salvar o texto sempre que o usuário parar de digitar
-    textareas.forEach(textarea => {
-        textarea.addEventListener('keyup', () => {
-            // Salva no localStorage do navegador. O dado fica salvo mesmo se fechar a aba!
-            localStorage.setItem(textarea.id, textarea.value);
+    function initializeDiary() {
+        // Inicializa o Turn.js
+        book.turn({
+            width: 800,
+            height: 550,
+            elevation: 50,
+            gradients: true,
+            autoCenter: true,
+            pages: totalPages + 2 // 50 páginas + 2 de capa
         });
-    });
 
-    // Carregar o texto salvo quando a página é aberta
-    function loadSavedText() {
-        textareas.forEach(textarea => {
-            const savedText = localStorage.getItem(textarea.id);
-            if (savedText) {
-                textarea.value = savedText;
-            }
+        // Carrega os textos salvos para o usuário atual
+        loadSavedText();
+
+        // Salva o texto automaticamente ao digitar
+        $('textarea').on('keyup', function() {
+            const pageId = $(this).attr('id');
+            const content = $(this).val();
+            // Chave de salvamento individual: "nomeDoUsuario_idDaPagina"
+            localStorage.setItem(`${currentUser}_${pageId}`, content);
         });
     }
 
-    // Carrega tudo ao iniciar
-    loadSavedText();
-    updateButtons();
+    function loadSavedText() {
+        for (let i = 1; i <= totalPages; i++) {
+            const pageId = `text-${i}`;
+            const savedContent = localStorage.getItem(`${currentUser}_${pageId}`);
+            if (savedContent) {
+                $(`#${pageId}`).val(savedContent);
+            } else {
+                // Limpa o textarea se não houver conteúdo salvo para este usuário
+                 $(`#${pageId}`).val('');
+            }
+        }
+    }
+
+    // Permite navegar com as setas do teclado
+    $(window).on('keydown', function(e){
+        if (e.key === 'ArrowLeft') book.turn('previous');
+        if (e.key === 'ArrowRight') book.turn('next');
+    });
 });
