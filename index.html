@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Pequeno Diário</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Slabo+27px&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="book-container">
+        <div class="book">
+            <div class="cover">
+                <h1>Meu Pequeno Diário</h1>
+            </div>
+
+            <div class="page" id="p1">
+                <div class="front">
+                    <div class="page-content">
+                        <h2>Página 1</h2>
+                        <textarea id="text-1" placeholder="Comece a escrever aqui..."></textarea>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="page-content">
+                        <h2>Página 2</h2>
+                        <textarea id="text-2" placeholder="Continue sua história..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="p2">
+                <div class="front">
+                    <div class="page-content">
+                        <h2>Página 3</h2>
+                        <textarea id="text-3"></textarea>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="page-content">
+                        <h2>Página 4</h2>
+                        <textarea id="text-4"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page" id="p25">
+                <div class="front">
+                    <div class="page-content">
+                        <h2>Página 49</h2>
+                        <textarea id="text-49"></textarea>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="page-content">
+                        <h2>Página 50</h2>
+                        <textarea id="text-50"></textarea>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="back-cover"></div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button id="prev-btn">Anterior</button>
+        <button id="next-btn">Próxima</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
